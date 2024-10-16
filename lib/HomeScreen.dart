@@ -62,15 +62,15 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage('assets/images/icon_radio.png'),
-                ),
-                label: 'Radio',
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(
                   AssetImage('assets/images/icon_sebha.png'),
                 ),
                 label: 'Sebha',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage('assets/images/icon_radio.png'),
+                ),
+                label: 'Radio',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings_outlined),
