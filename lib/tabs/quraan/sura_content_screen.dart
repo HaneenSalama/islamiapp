@@ -28,7 +28,9 @@ class _SuraContentScreenState extends State<SuraContentScreen> {
   @override
   Widget build(BuildContext context) {
     args = ModalRoute.of(context)!.settings.arguments as SuraContentArgs;
-    loadSuraFile();
+    if (ayat.isEmpty) {
+      loadSuraFile();
+    }
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
