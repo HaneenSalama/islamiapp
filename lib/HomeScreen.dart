@@ -3,7 +3,9 @@ import 'package:islamiapp/tabs/hadeath/hadeath_tab.dart';
 import 'package:islamiapp/tabs/quraan/quran_tab.dart';
 import 'package:islamiapp/tabs/radio/redio_tab.dart';
 import 'package:islamiapp/tabs/sebha/sebha_tab.dart';
+import 'package:islamiapp/tabs/settings/settings_provider.dart';
 import 'package:islamiapp/tabs/settings/settings_tab.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -27,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
+          image: AssetImage(
+              'assets/images/${Provider.of<SettingsProvider>(context).backGroundName}.png'),
           fit: BoxFit.fill,
         ),
       ),
@@ -35,9 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           title: Text(
             'إسلامي',
-            style: TextStyle(
-              color: Colors.black,
-            ),
           ),
         ),
         body: tabs[currentIndex],
