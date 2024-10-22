@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:islamiapp/app_theme.dart';
 import 'package:islamiapp/tabs/settings/language.dart';
+import 'package:islamiapp/tabs/settings/language.dart';
+import 'package:islamiapp/tabs/settings/language.dart';
 import 'package:islamiapp/tabs/settings/settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'language.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({super.key});
@@ -54,13 +57,14 @@ class _SettingsTabState extends State<SettingsTab> {
               ),
               DropdownButtonHideUnderline(
                 child: DropdownButton<Language>(
-                  value: languages.first,
+                  value: languages.firstWhere((Language) =>
+                      Language.code == settingsProvider.LanguageCode),
                   items: languages
                       .map(
-                        (Language) => DropdownMenuItem(
-                          value: Language,
+                        (language) => DropdownMenuItem<Language>(
+                          value: language,
                           child: Text(
-                            Language.name,
+                            language.name,
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),

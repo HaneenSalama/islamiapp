@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SettingsProvider with ChangeNotifier {
   ThemeMode themeMode = ThemeMode.light;
-  String LanguageCode = 'en';
+  String LanguageCode = 'ar';
 
   bool get isDark => themeMode == ThemeMode.dark;
 
@@ -14,6 +14,8 @@ class SettingsProvider with ChangeNotifier {
   }
 
   void changeLanguage(String selectedLanguage) {
+    if (selectedLanguage == LanguageCode) return;
+    //print('inside fun');
     LanguageCode = selectedLanguage;
     notifyListeners();
   }

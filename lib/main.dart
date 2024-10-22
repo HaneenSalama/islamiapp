@@ -5,6 +5,8 @@ import 'package:islamiapp/tabs/quraan/sura_content_screen.dart';
 import 'package:islamiapp/tabs/settings/settings_provider.dart';
 import 'package:provider/provider.dart';
 import 'HomeScreen.dart';
+//import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(
@@ -30,6 +32,9 @@ class IslamiApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: settingsProvider.themeMode,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(settingsProvider.LanguageCode),
     );
   }
 }
