@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:islamiapp/app_theme.dart';
 import 'package:islamiapp/tabs/settings/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -37,30 +39,36 @@ class _SebhaTabState extends State<SebhaTab> {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            child: Image.asset(
-              'assets/images/${Provider.of<SettingsProvider>(context).sebhaHead}.png',
-              width: 150,
-              height: 100,
-            ),
-          ),
-          SizedBox(height: 0),
-          Container(
-            child: GestureDetector(
-              onTap: incrementTasbeeh,
-              child: Transform.rotate(
-                angle: rotationAngle,
+          Stack(
+            clipBehavior: Clip.none,
+            //alignment: Alignment.topRight,
+            children: [
+              Container(
+                margin: EdgeInsets.only(bottom: 70),
                 child: Image.asset(
-                  'assets/images/${Provider.of<SettingsProvider>(context).sebhaBody}.png',
+                  'assets/images/${Provider.of<SettingsProvider>(context).sebhaHead}.png',
                   width: 150,
-                  height: 150,
+                  height: 100,
                 ),
               ),
-            ),
+              Positioned(
+                bottom: -50,
+                child: GestureDetector(
+                  onTap: incrementTasbeeh,
+                  child: Transform.rotate(
+                    angle: rotationAngle,
+                    child: Image.asset(
+                      'assets/images/${Provider.of<SettingsProvider>(context).sebhaBody}.png',
+                      width: 150,
+                      height: 150,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 70),
           Text(
             'عدد التسبيحات',
             style: TextStyle(
